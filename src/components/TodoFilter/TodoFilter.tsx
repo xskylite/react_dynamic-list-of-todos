@@ -2,13 +2,15 @@ import React, { useCallback, useState } from 'react';
 import { FilterBy } from '../../App';
 
 interface Props {
-  filterBy: (option: FilterBy) => void;
+  filterBy: FilterBy;
+  setFilterBy: (option: FilterBy) => void;
   setQuery: (query: string) => void;
 }
 
 export const TodoFilter: React.FC<Props> = ({
-  filterBy = () => {},
-  setQuery = () => {},
+  filterBy,
+  setFilterBy,
+  setQuery,
 }) => {
   const [value, setValue] = useState('');
 
@@ -31,7 +33,8 @@ export const TodoFilter: React.FC<Props> = ({
         <span className="select">
           <select
             data-cy="statusSelect"
-            onChange={event => filterBy(event.target.value as FilterBy)}
+            value={filterBy}
+            onChange={event => setFilterBy(event.target.value as FilterBy)}
           >
             <option value="all">All</option>
             <option value="active">Active</option>

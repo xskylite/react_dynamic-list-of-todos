@@ -60,7 +60,11 @@ export const App: React.FC = () => {
             <h1 className="title">Todos:</h1>
 
             <div className="block">
-              <TodoFilter filterBy={setFilterBy} setQuery={setQuery} />
+              <TodoFilter
+                filterBy={filterBy}
+                setFilterBy={setFilterBy}
+                setQuery={setQuery}
+              />
             </div>
 
             <div className="block">

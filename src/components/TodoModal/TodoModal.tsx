@@ -16,6 +16,7 @@ export const TodoModal: React.FC<Props> = ({ selectedTodo, onClose }) => {
 
   useEffect(() => {
     if (selectedTodo) {
+      setIsLoading(true);
       getUser(selectedTodo.userId).then(userFromServer => {
         setUser(userFromServer);
         setIsLoading(false);
